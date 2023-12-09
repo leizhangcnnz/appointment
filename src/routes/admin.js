@@ -7,10 +7,9 @@ export default {
   component: Layout,
   childRoutes: [
     { path: '/', component: lazy(() => import('@/views/admin/home')) },
-    { path: 'article/edit/:id', component: lazy(() => import('@/views/admin/article/edit')) },
-    { path: 'article/add', component: lazy(() => import('@/views/admin/article/edit')) },
-    { path: 'article/manager', component: lazy(() => import('@/views/admin/article/manager')) },
-    { path: 'article/graph', component: lazy(() => import('@/views/admin/article/graph')) },
+    { path: 'cloud-host/edit/:hostname', component: lazy(() => import('@/views/admin/cloudHost/edit')) },
+    { path: 'cloud-host/add', component: lazy(() => import('@/views/admin/cloudHost/edit')) },
+    { path: 'cloud-host/manager', component: lazy(() => import('@/views/admin/cloudHost/manager')) },
     { path: 'trade-user/add', component: lazy(() => import('@/views/admin/fragment/edit')) },
     { path: 'trade-user/edit/:code', component: lazy(() => import('@/views/admin/fragment/edit')) },
     { path: 'trade-user/manager', component: lazy(() => import('@/views/admin/fragment/manager')) },

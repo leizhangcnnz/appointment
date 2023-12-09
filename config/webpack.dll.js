@@ -7,22 +7,7 @@ module.exports = {
   entry: {
     'react': ['react', 'react-dom'],
     'router': ['react-router-dom'],
-    'redux': ['redux', 'react-redux', 'redux-thunk'],
-    // 'antd': [
-    //   'antd/lib/form',
-    //   'antd/lib/steps',
-    //   'antd/lib/input',
-    //   'antd/lib/row',
-    //   'antd/lib/col',
-    //   'antd/lib/button',
-    //   'antd/lib/message',
-    //   'antd/lib/icon',
-    //   'antd/lib/cascader',
-    //   'antd/lib/checkbox',
-    //   'antd/lib/modal',
-    //   'antd/lib/upload',
-    //   'antd/lib/progress',
-    // ]
+    'redux': ['redux', 'react-redux', 'redux-thunk']
   },
   output: {
     filename: '[name].js',
@@ -35,12 +20,5 @@ module.exports = {
       path: resolve(__dirname, '../dll/manifest.json') // 输出文件路径
     })
   ],
-  mode: 'production',
-
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new TerserPlugin()
-  //   ]
-  // }
+  mode: 'production'
 }

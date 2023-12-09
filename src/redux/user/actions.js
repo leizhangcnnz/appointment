@@ -21,8 +21,8 @@ export const register = params => {
     params.password = PSW.default.encrypt(params.password)
   }
   return dispatch =>
-    axios.post('/register', params).then(res => {
-      message.success('注册成功，请重新登录您的账号！')
+    axios.post(`${USER_DOMAIN}/register`, params).then(res => {
+      message.success('暂不支持注册')
       return res
     })
 }

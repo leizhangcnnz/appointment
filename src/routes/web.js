@@ -1,4 +1,3 @@
-import { GITHUB } from '@/config'
 import Layout from '@/layout/web'
 import lazy from '@/components/Lazy'
 

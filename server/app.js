@@ -48,8 +48,6 @@ app.listen(config.PORT, () => {
   db.sequelize
     .sync({ force: false }) // If force is true, each DAO will do DROP TABLE IF EXISTS ..., before it tries to create its own table
     .then(async () => {
-      const initData = require('./initData')
-      initData() // 创建初始化数据
       console.log('sequelize connect success')
       console.log(`sever listen on http://127.0.0.1:${config.PORT}`)
     })

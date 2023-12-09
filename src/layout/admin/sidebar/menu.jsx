@@ -8,28 +8,6 @@ const menu = [
     name: '首页',
   },
   {
-    path: '/admin/article',
-    icon: <SwitcherOutline />,
-    name: '文章',
-    children: [
-      {
-        path: '/admin/article/manager',
-        icon: <FolderOutline />,
-        name: '管理',
-      },
-      {
-        path: '/admin/article/add',
-        icon: <EditOutline />,
-        name: '新增',
-      },
-      {
-        path: '/admin/article/graph',
-        icon: <StarOutline />,
-        name: '图表',
-      },
-    ],
-  },
-  {
     path: '/admin/trade-user',
     icon: <FolderOpenOutline />,
     name: '交易用户',
@@ -44,6 +22,23 @@ const menu = [
         icon: <EditOutline />,
         name: '新增',
       },
+    ],
+  },
+  {
+    path: '/admin/article',
+    icon: <SwitcherOutline />,
+    name: '主机管理',
+    children: [
+      {
+        path: '/admin/article/manager',
+        icon: <FolderOutline />,
+        name: '管理',
+      },
+      {
+        path: '/admin/article/add',
+        icon: <EditOutline />,
+        name: '新增',
+      }
     ],
   },
   {
