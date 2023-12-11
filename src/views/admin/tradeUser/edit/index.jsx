@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import useBreadcrumb from '@/hooks/useBreadcrumb'
 import { Form, Button, Divider, Space, Input, message } from 'antd'
-import { addTradeUser, getTradeUserById, validateTraceUser, getTradeUserTied, getTradeUserMt4Budget, tieAllLeftOperators, saveAllTieOperators, refreshEtToken, refreshCache, restartServices, getNUserHost } from '@/redux/tradeUser/actions'
+import { addTradeUser, getTradeUserById, validateTraceUser, getTradeUserTied, getTradeUserMt4Budget, tieAllLeftOperators, saveAllTieOperators, refreshEtToken } from '@/redux/tradeUser/actions'
+import { refreshCache, restartServices, getNUserHost } from '@/redux/setting/actions'
 
 function TradeUser(props) {
   const dispatch = useDispatch()
@@ -70,24 +71,6 @@ function TradeUser(props) {
     })
   }
 
-  function get1UserHost() {
-    dispatch(getNUserHost(1)).then(hostnames => {
-      setBoardInfo(hostnames.toString())
-    })
-  }
-
-  function refresh() {
-    dispatch(refreshCache()).then(message => {
-      setBoardInfo(message)
-    })
-  }
-
-  function restart() {
-    dispatch(restartServices()).then(message => {
-      setBoardInfo(message)
-    })
-  }
-
   return (
     <div className='admin-edit-article'>
       <Form
@@ -141,9 +124,9 @@ function TradeUser(props) {
             <Button type='dashed' htmlType='button' onClick={getTradeUserTiedOperators}>查看绑定</Button>
             <Button type='dashed' htmlType='button' onClick={tieLeftOperators}>绑定剩余所有</Button>
             <Button type='dashed' htmlType='button' onClick={saveAllTieOperatorsInfo}>保存用户所有绑定信息</Button>
-            <Button type='dashed' htmlType='button' onClick={get1UserHost}>可用服务器</Button>
-            <Button type='dashed' htmlType='button' onClick={refresh}>刷新缓存</Button>
-            <Button type='dashed' htmlType='button' onClick={restart}>重启服务</Button>
+            <Button type='dashed' htmlType='button' onClick={() => getNUserHost(1, setBoardInfo)}>可用服务器</Button>
+            <Button type='dashed' htmlType='button' onClick={() => refreshCache(setBoardInfo)}>刷新缓存</Button>
+            <Button type='dashed' htmlType='button' onClick={() => restartServices(setBoardInfo)}>重启服务</Button>
           </Space>
         </Form.Item>
       </Form>

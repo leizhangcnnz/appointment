@@ -25,17 +25,17 @@ const menu = [
     ],
   },
   {
-    path: '/admin/article',
+    path: '/admin/cld-host',
     icon: <SwitcherOutline />,
     name: '主机管理',
     children: [
       {
-        path: '/admin/article/manager',
+        path: '/admin/cld-host/manager',
         icon: <FolderOutline />,
         name: '管理',
       },
       {
-        path: '/admin/article/add',
+        path: '/admin/cld-host/add',
         icon: <EditOutline />,
         name: '新增',
       }

@@ -120,37 +120,3 @@ export const refreshEtToken = (code, etPassword) => {
     }
   })
 }
-
-export const getNUserHost = numberOfUsers => {
-  const config = {
-    params: { numberOfUsers }
-
-  }
-  return dispatch => axios.get('/cloud-hosts/with-n-users', config).then(response => {
-    if (response.success) {
-      return response.data.map(hostInfo => `${hostInfo.hostname}: ${hostInfo.following}`)
-    } else {
-      return '未成功刷新cache'
-    }
-  })
-}
-
-export const refreshCache = () => {
-  return dispatch => axios.put('/caches/refresh').then(response => {
-    if (response.success) {
-      return '成功刷新cache'
-    } else {
-      return '未成功刷新cache'
-    }
-  })
-}
-
-export const restartServices = () => {
-  return dispatch => axios.put('/services/daily-restart').then(response => {
-    if (response.success) {
-      return '服务已重启'
-    } else {
-      return '重启服务失败'
-    }
-  })
-}

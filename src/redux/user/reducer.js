@@ -16,10 +16,6 @@ if (userInfo) {
   defaultState = { ...defaultState, ...userInfo }
 }
 
-// console.log('%c defaultState', 'background: yellow', defaultState)
-/**
- * UserReducer
- */
 export default function UserReducer(state = defaultState, action) {
   const { type, payload } = action
   switch (type) {

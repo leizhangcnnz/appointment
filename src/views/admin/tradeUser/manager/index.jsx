@@ -1,12 +1,9 @@
 import React, { Component, useState, useEffect } from 'react'
-import { connect, useSelector, useDispatch } from 'react-redux'
 import { Table, Tag, Switch, message, Input, Button, Popconfirm, Select, Form } from 'antd'
 
 import axios from '@/utils/axios'
 
 import { Link } from 'react-router-dom'
-import dayjs from '@/utils/dayjs'
-import download from '@/utils/download'
 
 import useAntdTable from '@/hooks/useAntdTable'
 

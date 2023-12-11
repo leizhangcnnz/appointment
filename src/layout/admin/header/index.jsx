@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 import { loginout } from '@/redux/user/actions'
 
 import { Button, Dropdown, Menu, Avatar } from 'antd'
-import logo from '@/assets/images/avatar.jpeg'
 import { DownOutlined } from '@ant-design/icons'
 
 function AdminHeader(props) {
