@@ -8,7 +8,7 @@ export default {
   childRoutes: [
     { path: '/', component: lazy(() => import('@/views/web/home')) },
     { path: '/home', component: lazy(() => import('@/views/web/home')) },
-    { path: '/tied-operators', component: lazy(() => import('@/views/web/fragments')) },
+    { path: '/tied-operators', component: lazy(() => import('@/views/web/tiedOperators')) },
     { path: '*', component: lazy(() => import('@/components/404')) },
   ],
 }

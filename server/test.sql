@@ -129,25 +129,5 @@ CREATE TABLE `user` (
       `updatedAt` datetime DEFAULT NULL,
       PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 47529555 DEFAULT CHARSET = utf8;
--- ---------------------------- 
--- Table structure for fragment
--- ----------------------------
-DROP TABLE IF EXISTS `fragment`;
-CREATE TABLE `fragment` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `author` varchar(255) NOT NULL,
-      `content` text CHARACTER SET utf8mb4,
-      `createdAt` datetime DEFAULT NULL,
-      PRIMARY KEY (`id`)
-) ENGINE = InnoDB AUTO_INCREMENT = 101 DEFAULT CHARSET = utf8;
-SET FOREIGN_KEY_CHECKS = 1;
 
-DROP TABLE IF EXISTS `record`;
-CREATE TABLE `record`(
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `articleId` int(11) NOT NULL,
-      `userId` int(11) DEFAULT NULL,
-      `recordTime` datetime DEFAULT NULL,
-      PRIMARY KEY (`id`)
-) ENGINE = InnoDB AUTO_INCREMENT = 101 DEFAULT CHARSET = utf8;
 SET FOREIGN_KEY_CHECKS = 1;

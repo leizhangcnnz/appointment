@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { tieOperators } from '@/redux/tiedOperators/actions'
-import './index.less'
-import { Col, Row, Comment, Tooltip, List, Card, Avatar } from 'antd'
-import axios from '@/utils/axios'
+import { Col, Row, List, Card } from 'antd'
 import useAjaxLoading from '@/hooks/useAjaxLoading'
-import dayjs from '@/utils/dayjs'
 
 const { Meta } = Card
 
-function FragmentList(props) {
+function TiedOperatorList(props) {
   const dispatch = useDispatch()
   const [loading, withLoading] = useAjaxLoading()
   const default_userTied = { users: [], inconsistentTiedUserDtos: [], referType: '', referTiedOperators: ''}
-  const [fragment, setFragment] = useState(default_userTied)
-  const [fragment1, setFragment1] = useState(default_userTied)
+  const [tiedOperators, setTiedOperators] = useState(default_userTied)
+  const [tiedOperators1, setTiedOperators1] = useState(default_userTied)
 
   useEffect(() => {
     withLoading(dispatch(tieOperators()))
       .then(res => {
-        setFragment(res.eachTypeUserTiedStatus[0] ? res.eachTypeUserTiedStatus[0] : default_userTied)
-        setFragment1(res.eachTypeUserTiedStatus[1] ? res.eachTypeUserTiedStatus[1] : default_userTied)
+        setTiedOperators(res.eachTypeUserTiedStatus[0] ? res.eachTypeUserTiedStatus[0] : default_userTied)
+        setTiedOperators1(res.eachTypeUserTiedStatus[1] ? res.eachTypeUserTiedStatus[1] : default_userTied)
       })
       .catch(e => {
         console.log(e)
@@ -31,11 +28,11 @@ function FragmentList(props) {
   return (
     <>
       <Row>
-        <Col span={fragment.inconsistentTiedUserDtos.length === 0 ? 0 : 12}>
+        <Col span={tiedOperators.inconsistentTiedUserDtos.length === 0 ? 0 : 12}>
           <List
             size={'large'}
-            header={`[${fragment.inconsistentTiedUserDtos.length}]${fragment.referType} ${fragment.referTiedOperators}`}
-            dataSource={fragment.inconsistentTiedUserDtos}
+            header={`[${tiedOperators.inconsistentTiedUserDtos.length}]${tiedOperators.referType} ${tiedOperators.referTiedOperators}`}
+            dataSource={tiedOperators.inconsistentTiedUserDtos}
             split={true}
             style={{width: '80%', marginTop: '5%', alignSelf: 'center'}}
             renderItem={item => (
@@ -48,11 +45,11 @@ function FragmentList(props) {
             )}
           />
         </Col>
-        <Col span={fragment1.inconsistentTiedUserDtos.length === 0 ? 0 : 12}>
+        <Col span={tiedOperators1.inconsistentTiedUserDtos.length === 0 ? 0 : 12}>
           <List
             size={'large'}
-            header={`[${fragment1.inconsistentTiedUserDtos.length}]${fragment1.referType} ${fragment1.referTiedOperators}`}
-            dataSource={fragment1.inconsistentTiedUserDtos}
+            header={`[${tiedOperators1.inconsistentTiedUserDtos.length}]${tiedOperators1.referType} ${tiedOperators1.referTiedOperators}`}
+            dataSource={tiedOperators1.inconsistentTiedUserDtos}
             split={true}
             style={{width: '80%', marginTop: '5%', alignSelf: 'center'}}
             renderItem={item => (
@@ -70,8 +67,8 @@ function FragmentList(props) {
         <Col span={12}>
           <List
             size={'large'}
-            header={`[${fragment.users.length}]${fragment.referType} ${fragment.referTiedOperators}`}
-            dataSource={fragment.users}
+            header={`[${tiedOperators.users.length}]${tiedOperators.referType} ${tiedOperators.referTiedOperators}`}
+            dataSource={tiedOperators.users}
             split={true}
             style={{width: '80%', marginTop: '5%', alignSelf: 'center'}}
             renderItem={item => (
@@ -86,8 +83,8 @@ function FragmentList(props) {
         <Col span={12}>
           <List
             size={'large'}
-            header={`[${fragment1.users.length}]${fragment1.referType} ${fragment1.referTiedOperators}`}
-            dataSource={fragment1.users}
+            header={`[${tiedOperators1.users.length}]${tiedOperators1.referType} ${tiedOperators1.referTiedOperators}`}
+            dataSource={tiedOperators1.users}
             split={true}
             style={{width: '80%', marginTop: '5%', alignSelf: 'center'}}
             renderItem={item => (
@@ -104,4 +101,4 @@ function FragmentList(props) {
   )
 }
 
-export default FragmentList
+export default TiedOperatorList

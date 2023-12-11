@@ -1,15 +1,14 @@
-import React, { Component, useState, useEffect } from 'react'
-import { Table, Tag, Switch, message, Input, Button, Popconfirm, Select, Form } from 'antd'
-
-import axios from '@/utils/axios'
+import React, { useState } from 'react'
+import { Table, Switch, Input, Button, Popconfirm, Form } from 'antd'
 
 import { Link } from 'react-router-dom'
 
 import useAntdTable from '@/hooks/useAntdTable'
 
 import useBreadcrumb from '@/hooks/useBreadcrumb'
+import { deleteTradeUser } from '@/redux/tradeUser/actions'
 
-function FragmentManager(props) {
+function TradeUserManager(props) {
   useBreadcrumb(['交易用户管理'])
 
   const [queryParams, setQueryParams] = useState({})
@@ -48,7 +47,7 @@ function FragmentManager(props) {
                 <Popconfirm
                   title='Are you sure?'
                   cancelText='No'
-                  onConfirm={e => updateList(() => axios.delete(`/fragment/${code}`))}>
+                  onConfirm={e => updateList(() => deleteTradeUser(code))}>
                   <a className='delete-text'>删除</a>
                 </Popconfirm>
               </li>
@@ -60,10 +59,10 @@ function FragmentManager(props) {
   })
 
   function delList() {
-    axios.delete(`/fragment/list/${selectedRowKeys}`).then(() => {
-      onSearch()
-      setSelectedRowKeys([])
-    })
+    // axios.delete(`/trade-users/list/${selectedRowKeys}`).then(() => {
+    //   onSearch()
+    //   setSelectedRowKeys([])
+    // })
   }
 
   const handleSubmit = values => {
@@ -81,7 +80,7 @@ function FragmentManager(props) {
   } : null
 
   return (
-    <div className='admin-fragment-manager'>
+    <div>
       <Form layout='inline' onFinish={handleSubmit} style={{ marginBottom: 20 }}>
         <Form.Item label='关键词' name='keyword'>
           <Input placeholder='请输入关键词' allowClear />
@@ -102,9 +101,8 @@ function FragmentManager(props) {
             {batch && (
               <>
                 <Popconfirm
-                  title='Are you sure delete the fragments?'
-                  onConfirm={delList}
-                  // onCancel={cancel}
+                  title='Are you sure delete the selected users?'
+                  // onConfirm={delList}
                   okText='Yes'
                   cancelText='No'>
                   <Button type='danger' size='small' disabled={selectedRowKeys.length === 0}>
@@ -120,4 +118,4 @@ function FragmentManager(props) {
   )
 }
 
-export default FragmentManager
+export default TradeUserManager

@@ -120,3 +120,7 @@ export const refreshEtToken = (code, etPassword) => {
     }
   })
 }
+
+export const deleteTradeUser = code => {
+  return axios.delete(`/users/trade/${code}`)
+}
