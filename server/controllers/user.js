@@ -1,16 +1,5 @@
 const Joi = require('joi')
 const axios = require('axios')
-const PSW = require('../utils/password')
-const DOMParser = require('dom-parser')
-const { GITHUB } = require('../config')
-var fs = require('fs')
-const { decodeQuery } = require('../utils')
-const { comparePassword, encrypt } = require('../utils/bcrypt')
-const { createToken } = require('../utils/token')
-
-const { user: UserModel, comment: CommentModel, reply: ReplyModel, ip: IpModel, sequelize } = require('../models')
-const func = require('joi/lib/types/func')
-const DomParser = require('dom-parser')
 const qs = require("qs");
 
 const USER_DOMAIN = 'http://spring-oauth-server:54188'

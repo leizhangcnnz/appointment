@@ -8,7 +8,6 @@ const logger = require('koa-logger')
 const config = require('./config')
 
 const loadRouter = require('./router')
-const db = require('./models')
 
 // app...
 const app = new Koa()
@@ -17,10 +16,6 @@ const context = require('./utils/context')
 Object.keys(context).forEach(key => {
   app.context[key] = context[key] // 绑定上下文对象
 })
-
-// moddlewares
-const authHandler = require('./middlewares/authHandler')
-const path = require('path')
 
 app
   .use(cors())
@@ -39,19 +34,10 @@ app
       postFormat: (e, { stack, ...rest }) => (process.env.NODE_ENV !== 'development' ? rest : { stack, ...rest })
     })
   )
-  .use(authHandler)
   .use(logger())
 
 loadRouter(app)
 
 app.listen(config.PORT, () => {
-  db.sequelize
-    .sync({ force: false }) // If force is true, each DAO will do DROP TABLE IF EXISTS ..., before it tries to create its own table
-    .then(async () => {
-      console.log('sequelize connect success')
-      console.log(`sever listen on http://127.0.0.1:${config.PORT}`)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  console.log(`sever listen on http://127.0.0.1:${config.PORT}`)
 })
