@@ -14,7 +14,7 @@ export const SIDEBAR = {
 
 // 公告 announcement
 export const ANNOUNCEMENT = {
-  enable: true,
+  enable: false,
   content: (
     <>
       网站维护信息

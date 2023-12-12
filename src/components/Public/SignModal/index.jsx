@@ -3,9 +3,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Input, Button, Modal, Form } from 'antd'
 import { useLocation } from 'react-router-dom'
 
-import { save } from '@/utils/storage'
-
-// redux
 import { login, register } from '@/redux/user/actions'
 import { useDispatch } from 'react-redux'
 
@@ -29,8 +26,7 @@ function FormItem(props) {
 }
 
 function SignModal(props) {
-  const dispatch = useDispatch() // dispatch hooks
-  const location = useLocation() // location
+  const dispatch = useDispatch()
   const [visible, setVisible] = useState(false)
   const [type, setType] = useState('login')
   const [form] = Form.useForm()
@@ -63,7 +59,7 @@ function SignModal(props) {
     <Modal
       width={460}
       title={type}
-      visible={visible}
+      open={visible}
       onCancel={e => setVisible(false)}
       footer={null}>
       <Form layout='horizontal' form={form}>

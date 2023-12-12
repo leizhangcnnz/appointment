@@ -1,10 +1,10 @@
-import Layout from '@/layout/admin'
+import AdminLayout from '@/layout/admin'
 import lazy from '@/components/Lazy'
 
 export default {
   path: '/admin',
   name: 'home',
-  component: Layout,
+  component: AdminLayout,
   childRoutes: [
     { path: '/', component: lazy(() => import('@/views/admin/home')) },
     { path: 'cld-host/edit/:hostname', component: lazy(() => import('@/views/admin/cloudHost/edit')) },
@@ -14,6 +14,6 @@ export default {
     { path: 'trade-user/edit/:code', component: lazy(() => import('@/views/admin/tradeUser/edit')) },
     { path: 'trade-user/manager', component: lazy(() => import('@/views/admin/tradeUser/manager')) },
     { path: 'user/manager', component: lazy(() => import('@/views/admin/user')) },
-    { path: 'monitor', component: lazy(() => import('@/views/admin/monitor')) },
+    { path: '/tied-operators', component: lazy(() => import('@/views/admin/tiedOperators')) },
   ],
 }

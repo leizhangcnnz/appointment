@@ -59,9 +59,9 @@ const menu = [
     ],
   },
   {
-    path: '/admin/monitor',
+    path: '/admin/tied-operators',
     icon: <MonitorOutline />,
-    name: '系统监控',
+    name: '用户跟单',
   },
 ]
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -8,8 +8,8 @@ import routes from '@/routes'
 // components
 import PublicComponent from '@/components/Public'
 
-const App = props => {
-  const authorities = useSelector(state => state.user.authorities) // 相当于 connect(state => state.user.role)(App)
+const App = () => {
+  const authorities = useSelector(state => state.user.authorities)
 
   // 解构 route
   function renderRoutes(routes, contextPath) {
@@ -18,7 +18,7 @@ const App = props => {
     const renderRoute = (item, routeContextPath) => {
       let newContextPath = item.path ? `${routeContextPath}/${item.path}` : routeContextPath
       newContextPath = newContextPath.replace(/\/+/g, '/')
-      if (newContextPath.includes('admin') && authorities && !authorities.includes('SITE_MANAGER')) {
+      if (newContextPath.includes('admin') && (authorities === undefined || !authorities.includes('SITE_MANAGER'))) {
         item = {
           ...item,
           component: () => <Redirect to='/' />,
