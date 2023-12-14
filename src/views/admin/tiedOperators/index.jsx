@@ -21,7 +21,7 @@ function TiedOperatorList(props) {
       })
       .catch(e => {
         console.log(e)
-        props.history.push('/tied-operators')
+        props.history.push('/admin/tied-operators')
       })
   }, [])
 

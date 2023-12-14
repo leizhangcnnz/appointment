@@ -14,6 +14,6 @@ export default {
     { path: 'trade-user/edit/:code', component: lazy(() => import('@/views/admin/tradeUser/edit')) },
     { path: 'trade-user/manager', component: lazy(() => import('@/views/admin/tradeUser/manager')) },
     { path: 'user/manager', component: lazy(() => import('@/views/admin/user')) },
-    { path: '/tied-operators', component: lazy(() => import('@/views/admin/tiedOperators')) },
+    { path: 'tied-operators', component: lazy(() => import('@/views/admin/tiedOperators')) },
   ],
 }
