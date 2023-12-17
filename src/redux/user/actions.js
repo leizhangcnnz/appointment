@@ -1,7 +1,6 @@
 import * as TYPES from '@/redux/types'
 import axios from '@/utils/axios'
 import { message } from 'antd'
-import * as PSW from '@/utils/password'
 
 const USER_DOMAIN = 'http://127.0.0.1:8970'
 
@@ -18,7 +17,6 @@ export const login = params => {
 
 export const register = params => {
   if (params.password !== undefined) {
-    params.password = PSW.default.encrypt(params.password)
   }
   return dispatch =>
     axios.post(`${USER_DOMAIN}/register`, params).then(res => {
