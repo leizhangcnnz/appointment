@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import App from './App'
 import { Provider as BusProvider } from '@/hooks/useBus'
 // redux
@@ -10,11 +10,13 @@ import store from '@/redux'
 import '@/assets/icons/iconfont'
 import '@/styles/index.less'
 
-ReactDOM.render(
+const root = createRoot(
+  document.getElementById('root')
+)
+root.render(
   <BusProvider>
     <Provider store={store}>
       <App />
     </Provider>
-  </BusProvider>,
-  document.getElementById('root')
+  </BusProvider>
 )

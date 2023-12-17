@@ -1,4 +1,4 @@
-import thunk from 'redux-thunk'
+import { thunk } from 'redux-thunk'
 import { compose, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
